@@ -8,6 +8,7 @@ public class FlappyNerd : MonoBehaviour
 
 
     private Rigidbody2D rb;
+    private Animator anim;
 
 
     [SerializeField] private float jumpForce;
@@ -17,6 +18,7 @@ public class FlappyNerd : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
 
@@ -26,10 +28,18 @@ public class FlappyNerd : MonoBehaviour
         {
             Jump();
         }
+
+
+        AnimationController();
     }
 
     private void Jump()
     {
         rb.velocity = new Vector2(0, jumpForce);
+    }
+
+    private void AnimationController()
+    {
+        anim.SetFloat("yVelocity", rb.velocity.y);
     }
 }
