@@ -38,6 +38,10 @@ public class ObstacleSpawner : MonoBehaviour
     private void SpawnObstacle()
     {
         float randomY = Random.Range(-randomValue, randomValue);
+
+        if (randomY < 0)
+            randomY += 1;
+
         GameObject newObstacle = Instantiate(obstaclePref,new Vector3(transform.position.x,transform.position.y + randomY),Quaternion.identity);
         
 

@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ebaa61f423060a448761c78f003a204, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movePosition: {x: -3, y: 0, z: 0}
+  movePosition: {x: -4, y: 0, z: 0}
 --- !u!61 &1052947850172023274
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -166,7 +166,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -629253125, guid: d7bd16fc1563f3c41b0b6e6b1f1fc988, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -296,7 +296,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: -335876893, guid: d7bd16fc1563f3c41b0b6e6b1f1fc988, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
