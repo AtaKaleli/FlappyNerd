@@ -13,12 +13,13 @@ public class FlappyNerd : MonoBehaviour
 
     [SerializeField] private float jumpForce;
 
-
+    private GameManager gameManager;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        gameManager = GameManager.instance;
     }
 
 
@@ -50,6 +51,15 @@ public class FlappyNerd : MonoBehaviour
             Destroy(gameObject);
            
         }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if(collision.tag == "ObstacleBody")
+        {
+            gameManager.CountPoint();
+        }
+        print(gameManager.point);
     }
 
 }

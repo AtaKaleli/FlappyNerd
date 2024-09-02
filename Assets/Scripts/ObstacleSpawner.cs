@@ -21,17 +21,12 @@ public class ObstacleSpawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         spawnTimeCounter -= Time.deltaTime;
         if (spawnTimeCounter < 0)
         {
             SpawnObstacle();
             spawnTimeCounter = spawnTime;
         }
-        
-
-
-
     }
 
 
