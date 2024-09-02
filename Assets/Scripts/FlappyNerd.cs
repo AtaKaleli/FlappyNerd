@@ -18,7 +18,6 @@ public class FlappyNerd : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
         gameManager = GameManager.instance;
     }
 
@@ -30,8 +29,9 @@ public class FlappyNerd : MonoBehaviour
             Jump();
         }
 
+        
 
-        AnimationController();
+
     }
 
     private void Jump()
@@ -39,17 +39,14 @@ public class FlappyNerd : MonoBehaviour
         rb.velocity = new Vector2(0, jumpForce);
     }
 
-    private void AnimationController()
-    {
-        anim.SetFloat("yVelocity", rb.velocity.y);
-    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == "DeathZone")
         {
             Destroy(gameObject);
-           
+            gameManager.isPlayerDead = true;
+            gameManager.ClearTimeScale(); 
         }
     }
 
