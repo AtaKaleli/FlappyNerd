@@ -42,4 +42,14 @@ public class FlappyNerd : MonoBehaviour
     {
         anim.SetFloat("yVelocity", rb.velocity.y);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "DeathZone")
+        {
+            Destroy(gameObject);
+           
+        }
+    }
+
 }

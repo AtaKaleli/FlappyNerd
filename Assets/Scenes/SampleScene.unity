@@ -123,6 +123,53 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &448858160
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 448858162}
+  - component: {fileID: 448858161}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &448858161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448858160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a22ef0f09e4c4a439f9875f4da2b564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclePref: {fileID: 462441660006720320, guid: 7cd6fd113ec30694f83c37f8c8f7a1ee, type: 3}
+  randomValue: 4
+  spawnTime: 2
+--- !u!4 &448858162
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448858160}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.14, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +231,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 6
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -332,7 +379,7 @@ Transform:
   m_GameObject: {fileID: 1697143561}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.3092685, y: -2.737242, z: 0}
+  m_LocalPosition: {x: -7.8, y: -0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -377,7 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a7b7aada4867804581f62008449bdb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 15
+  jumpForce: 12
 --- !u!95 &1697143567
 Animator:
   serializedVersion: 5
@@ -405,3 +452,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 519420032}
   - {fileID: 1697143564}
+  - {fileID: 448858162}
