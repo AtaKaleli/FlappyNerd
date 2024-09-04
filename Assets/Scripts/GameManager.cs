@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     public int point;
     public bool pressToStart = false;
-    public bool isPlayerDead = false;
+    public bool isBirdDead = false;
 
     private void Awake()
     {
@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R) && isPlayerDead)
+        if (Input.GetKeyDown(KeyCode.R) && isBirdDead)
             RestartGame();
 
         if(pressToStart && Input.GetKeyDown(KeyCode.Space))
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
         point = 0;
         SceneManager.LoadScene("SampleScene");
         pressToStart = true;
-        isPlayerDead = false;
+        isBirdDead = false;
 
     }
 

@@ -45,7 +45,7 @@ public class FlappyNerd : MonoBehaviour
         if(collision.tag == "DeathZone")
         {
             Destroy(gameObject);
-            gameManager.isPlayerDead = true;
+            gameManager.isBirdDead = true;
             gameManager.ClearTimeScale(); 
         }
     }
