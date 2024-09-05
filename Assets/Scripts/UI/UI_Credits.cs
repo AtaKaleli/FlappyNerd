@@ -10,7 +10,17 @@ public class UI_Credits : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float offScreenposition;
 
+    private UI_FadeEffect fadeEffect;
 
+    private void Awake()
+    {
+        fadeEffect = GetComponentInChildren<UI_FadeEffect>();
+    }
+
+    private void Start()
+    {
+        fadeEffect.ScreenFade(0, 1.5f);
+    }
 
     private void Update()
     {
@@ -22,7 +32,13 @@ public class UI_Credits : MonoBehaviour
 
     public void SwitchToMainMenu()
     {
+        fadeEffect.ScreenFade(1, 1.5f,LoadMainMenu);
+    }
+
+    public void LoadMainMenu()
+    {
         SceneManager.LoadScene("MainMenu");
+
     }
 
 }

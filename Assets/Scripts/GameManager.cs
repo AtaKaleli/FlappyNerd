@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         point = 0;
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("GameScene");
         pressToStart = true;
         isBirdDead = false;
 

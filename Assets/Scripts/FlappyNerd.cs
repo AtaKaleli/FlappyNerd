@@ -36,6 +36,7 @@ public class FlappyNerd : MonoBehaviour
 
     private void Jump()
     {
+        AudioManager.instance.PlaySFX(3);
         rb.velocity = new Vector2(0, jumpForce);
     }
 
@@ -44,9 +45,14 @@ public class FlappyNerd : MonoBehaviour
     {
         if(collision.tag == "DeathZone")
         {
+            AudioManager.instance.PlaySFX(0);
             Destroy(gameObject);
             gameManager.isBirdDead = true;
             gameManager.ClearTimeScale(); 
+        }
+        if (collision.tag == "ObstacleBody")
+        {
+            AudioManager.instance.PlaySFX(1);
         }
     }
 
@@ -54,6 +60,7 @@ public class FlappyNerd : MonoBehaviour
     {
         if(collision.tag == "ObstacleBody")
         {
+            
             gameManager.CountPoint();
         }
         print(gameManager.point);

@@ -9,7 +9,7 @@ public class ObstacleSpawner : MonoBehaviour
     [SerializeField] private GameObject obstaclePref;
 
     [SerializeField] private float randomValue;
-    [SerializeField] private float spawnTime = 2.0f;
+    [SerializeField] private float spawnTime;
     private float spawnTimeCounter;
 
 
@@ -24,8 +24,9 @@ public class ObstacleSpawner : MonoBehaviour
         spawnTimeCounter -= Time.deltaTime;
         if (spawnTimeCounter < 0)
         {
-            SpawnObstacle();
             spawnTimeCounter = spawnTime;
+            SpawnObstacle();
+            
         }
     }
 
