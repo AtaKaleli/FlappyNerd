@@ -19,22 +19,28 @@ public class FlappyNerd : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         gameManager = GameManager.instance;
+        rb.gravityScale = 0;
+        gameManager.death = PlayerPrefs.GetInt("TotalDeath");
     }
 
 
     void Update()
     {
+        if (GameManager.instance.isBirdDead)
+            return;
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Jump();
         }
 
         
+        
 
 
     }
 
-    private void Jump()
+    public void Jump()
     {
         AudioManager.instance.PlaySFX(3);
         rb.velocity = new Vector2(0, jumpForce);
@@ -45,25 +51,24 @@ public class FlappyNerd : MonoBehaviour
     {
         if(collision.tag == "DeathZone")
         {
-            AudioManager.instance.PlaySFX(0);
-            Destroy(gameObject);
+            gameManager.isGameStarted = false;
             gameManager.isBirdDead = true;
-            gameManager.ClearTimeScale(); 
+            PlayerPrefs.SetInt("RoundScore", gameManager.score);
+            AudioManager.instance.PlaySFX(0);
+            UI_Ingame.instance.ClearIngameUI(2);
+            gameManager.CountDeath();
+            SaveSystem.instance.SaveBestScore();
+            SaveSystem.instance.SaveTotalDeath();
+            Destroy(gameObject);
+            Time.timeScale = 0;
         }
         if (collision.tag == "ObstacleBody")
         {
             AudioManager.instance.PlaySFX(1);
+            gameManager.CountScore();
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.tag == "ObstacleBody")
-        {
-            
-            gameManager.CountPoint();
-        }
-        print(gameManager.point);
-    }
+    
 
 }

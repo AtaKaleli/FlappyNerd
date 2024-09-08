@@ -17,7 +17,8 @@ public class Obstacle : MonoBehaviour
 
     void Update()
     {
-        transform.position += movePosition * Time.deltaTime;
+        if(GameManager.instance.isGameStarted)
+            transform.position += movePosition * Time.deltaTime;
     }
 
 

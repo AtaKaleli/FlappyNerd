@@ -9,6 +9,9 @@ public class UI_MainMenu : MonoBehaviour
     [SerializeField] private GameObject[] UIElements;
     private UI_FadeEffect fadeEffect;
 
+    [SerializeField] private UI_Settings sfxController;
+    [SerializeField] private UI_Settings bgmController;
+
     private void Awake()
     {
         fadeEffect = GetComponentInChildren<UI_FadeEffect>();
@@ -17,6 +20,10 @@ public class UI_MainMenu : MonoBehaviour
 
     private void Start()
     {
+        sfxController.GetComponent<UI_Settings>().SetUpSFXSlider();
+        bgmController.GetComponent<UI_Settings>().SetUpBGMSlider();
+
+
         for (int i = 0; i < UIElements.Length; i++)
         {
             UIElements[i].SetActive(false);
@@ -62,7 +69,7 @@ public class UI_MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Credits");
     }
-    /*
+    
     public void SwitchToGameScene()
     {
         fadeEffect.ScreenFade(1, 1.5f, LoadGameScene);
@@ -72,7 +79,7 @@ public class UI_MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("GameScene");
     }
-    */
+    
     
 
 }

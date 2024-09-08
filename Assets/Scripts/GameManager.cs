@@ -7,56 +7,89 @@ public class GameManager : MonoBehaviour
 {
 
     public static GameManager instance;
+    private FlappyNerd bird;
 
+    public int death;
+    public int score;
+    public int bestScore;
+    public bool isGamePaused;
+    public bool isGameStarted;
+    public bool isBirdDead;
 
-    public int point;
-    public bool pressToStart = false;
-    public bool isBirdDead = false;
+    [SerializeField] private Animator groundAnim;
+
+    private UI_Ingame inGameUI;
 
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        
 
         if (instance == null)
             instance = this;
         else
             Destroy(this.gameObject);
+
+        
+    }
+
+    private void Start()
+    {
+        inGameUI = UI_Ingame.instance;
+        bird = FindObjectOfType<FlappyNerd>(true);
+        if (bird == null)
+            print("null");
+
+        
+        
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R) && isBirdDead)
-            RestartGame();
+        GroundAnimController();
 
-        if(pressToStart && Input.GetKeyDown(KeyCode.Space))
+        if (isBirdDead)
+            return;
+
+
+        if (!isGameStarted && Input.GetKeyDown(KeyCode.Space))
         {
-            pressToStart = false;
+            inGameUI.ClearIngameUI();
+            bird.gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            isGameStarted = true;
             Time.timeScale = 1;
+            bird.gameObject.GetComponent<Rigidbody2D>().gravityScale = 4;
+            bird.Jump();
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            isGamePaused = !isGamePaused;
         }
     }
 
-    public void CountPoint()
+    private void GroundAnimController()
     {
-        point++;
+        if (!isGameStarted)
+            groundAnim.speed = 0;
+        else
+            groundAnim.speed = 1;
     }
 
-    public void RestartGame()
+    public void CountScore()
     {
-        point = 0;
-        SceneManager.LoadScene("GameScene");
-        pressToStart = true;
-        isBirdDead = false;
-
+        score++;
     }
+
+    
 
     public void SetTimeScale()
     {
         Time.timeScale = 1;
     }
 
-    public void ClearTimeScale()
+    public void CountDeath()
     {
-        Time.timeScale = 0;
+        death++;
     }
 
 
