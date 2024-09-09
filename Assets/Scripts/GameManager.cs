@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public bool isGamePaused;
     public bool isGameStarted;
     public bool isBirdDead;
+    public bool isSpacePressedForMobile;
 
     [SerializeField] private Animator groundAnim;
 
@@ -51,7 +52,7 @@ public class GameManager : MonoBehaviour
             return;
 
 
-        if (!isGameStarted && Input.GetKeyDown(KeyCode.Space))
+        if (!isGameStarted && isSpacePressedForMobile)
         {
             inGameUI.ClearIngameUI();
             bird.gameObject.GetComponent<SpriteRenderer>().enabled = true;
@@ -61,10 +62,6 @@ public class GameManager : MonoBehaviour
             bird.Jump();
         }
 
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            isGamePaused = !isGamePaused;
-        }
     }
 
     private void GroundAnimController()

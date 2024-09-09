@@ -1223,6 +1223,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FadeImage
       objectReference: {fileID: 0}
+    - target: {fileID: 1555527446215143082, guid: 7dafe23a94437bb4c9968a750c3d0c2a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6293503942332397812, guid: 7dafe23a94437bb4c9968a750c3d0c2a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

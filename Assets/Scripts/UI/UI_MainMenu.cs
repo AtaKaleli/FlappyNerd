@@ -15,6 +15,8 @@ public class UI_MainMenu : MonoBehaviour
     private void Awake()
     {
         fadeEffect = GetComponentInChildren<UI_FadeEffect>();
+        Application.targetFrameRate = 60;
+        QualitySettings.vSyncCount = 0;
        
     }
 

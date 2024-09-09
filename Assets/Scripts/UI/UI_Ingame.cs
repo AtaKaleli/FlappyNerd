@@ -17,6 +17,8 @@ public class UI_Ingame : MonoBehaviour
     [SerializeField] private UI_Settings sfxController;
     [SerializeField] private UI_Settings bgmController;
 
+    public FlappyNerd bird;
+
     private void Awake()
     {
         if (instance == null)
@@ -56,16 +58,21 @@ public class UI_Ingame : MonoBehaviour
         scoreText.text = gameManager.score.ToString();
     }
 
-
-
+    
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            PauseController();
-        }
+        
+        
+            
+        
 
         UpdateScoreText();
+    }
+
+    public void PauseButton()
+    {
+        gameManager.isGamePaused = !gameManager.isGamePaused;
+        PauseController();
     }
 
     private void PauseController()

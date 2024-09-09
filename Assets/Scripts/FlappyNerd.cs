@@ -29,10 +29,7 @@ public class FlappyNerd : MonoBehaviour
         if (GameManager.instance.isBirdDead)
             return;
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Jump();
-        }
+        
 
         
         
@@ -51,6 +48,7 @@ public class FlappyNerd : MonoBehaviour
     {
         if(collision.tag == "DeathZone")
         {
+            GameManager.instance.isSpacePressedForMobile = true;
             gameManager.isGameStarted = false;
             gameManager.isBirdDead = true;
             PlayerPrefs.SetInt("RoundScore", gameManager.score);
